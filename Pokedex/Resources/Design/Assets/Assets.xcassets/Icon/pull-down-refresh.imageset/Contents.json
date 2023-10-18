@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "pull-down-refresh.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

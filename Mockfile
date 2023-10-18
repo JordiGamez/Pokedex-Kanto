@@ -1,0 +1,14 @@
+sourceryCommand: null
+sourceryTemplate: null
+PokedexUnitTests:
+  sources:
+    include:
+    - ./Pokedex/Architecture
+  output: ./PokedexUnitTests/Mock/Mock.generated.swift
+  targets:
+  - PokedexUnitTests
+  testable:
+  - Pokedex
+  import:
+  - Foundation
+  - Combine
