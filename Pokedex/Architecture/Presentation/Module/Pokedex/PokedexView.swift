@@ -26,7 +26,6 @@ struct PokedexView<Presenter: PokedexPresenter>: View {
             }
         }
         .toolbar(.logo)
-        .onAppear { presenter.loadPokemon() }
     }
 }
 

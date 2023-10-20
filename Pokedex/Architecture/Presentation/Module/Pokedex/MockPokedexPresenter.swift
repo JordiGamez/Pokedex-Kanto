@@ -10,10 +10,10 @@ import Foundation
 final class MockPokedexPresenter: PokedexPresenter {
     
     var screenState: PokedexScreenState = .content
-    var pokemonList: [Pokemon] = []
+    var pokemonList: PokemonViewModel = .empty()
     
     init(pokemonList: [Pokemon]) {
-        self.pokemonList = pokemonList
+        self.pokemonList = PokemonViewModelMapper.map(pokemonList)
     }
     
     func loadPokemon() {

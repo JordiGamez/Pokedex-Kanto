@@ -11,6 +11,7 @@ private typealias builder = ToolbarItemsBuilder
 
 struct NavigationToolbar: ViewModifier {
     
+    let title: String
     let action: ((_ action: ToolbarAction) -> Void)?
     
     func body(content: Content) -> some View {
@@ -24,6 +25,9 @@ struct NavigationToolbar: ViewModifier {
                             action: action,
                             paddingEdge: .all
                         )
+                    }
+                    ToolbarItem(placement: .principal) {
+                        builder.toolbarTitle(title, color: Theme.Color.onBackground)
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)

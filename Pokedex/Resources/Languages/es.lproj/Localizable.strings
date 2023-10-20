@@ -9,3 +9,9 @@
 "pokedex_empty" = "No hay Pokémon en la Pokédex";
 "pokedex_error" = "No hemos podido cargar la Pokédex. Inténtalo de nuevo por favor";
 "pokedex_retry" = "Reintentar";
+
+"pokemon_detail_empty" = "El Pokémon no ha sido encontrado";
+"pokemon_detail_error" = "No hemos podido cargar la información del Pokémon. Inténtalo de nuevo por favor";
+"pokemon_detail_retry" = "Reintentar";
+"pokemon_detail_weight" = "Peso";
+"pokemon_detail_height" = "Altura";

@@ -7,5 +7,11 @@
 */
 
 "pokedex_empty" = "There are no Pokémon in the Pokédex";
-"pokedex_error" = "Unable to load the Pokédex, please try again.";
+"pokedex_error" = "Unable to load the Pokédex, please try again";
 "pokedex_retry" = "Retry";
+
+"pokemon_detail_empty" = "Pokémon not found";
+"pokemon_detail_error" = "Unable to load the Pokémon, please try again";
+"pokemon_detail_retry" = "Retry";
+"pokemon_detail_weight" = "Weight";
+"pokemon_detail_height" = "Height";

@@ -11,6 +11,7 @@ extension Theme {
     
     enum Font {
         
+        static var headline0: SwiftUI.Font = CustomFonts.openSans.bold.swiftUIFont(fixedSize: 125)
         static var headline1: SwiftUI.Font = CustomFonts.openSans.bold.swiftUIFont(fixedSize: 30)
         static var headline2: SwiftUI.Font = CustomFonts.openSans.bold.swiftUIFont(fixedSize: 24)
         static var headline3: SwiftUI.Font = CustomFonts.openSans.semiBold.swiftUIFont(fixedSize: 16)

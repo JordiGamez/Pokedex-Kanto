@@ -9,7 +9,7 @@ import Combine
 
 protocol PokedexPresenter: ObservableObject {
     var screenState: PokedexScreenState { get set }
-    var pokemonList: [Pokemon] { get set }
+    var pokemonList: PokemonViewModel { get set }
     
     func loadPokemon()
     func loadPokemonDetail(id: String)
@@ -25,7 +25,7 @@ enum PokedexScreenState {
 final class PokedexPresenterDefault {
     
     @Published var screenState: PokedexScreenState = .loading
-    @Published var pokemonList: [Pokemon] = []
+    @Published var pokemonList: PokemonViewModel = .empty()
     
     private let getPokemonInteractor: GetPokemonListInteractor
     private let router: PokedexRouter
@@ -38,6 +38,8 @@ final class PokedexPresenterDefault {
     ) {
         self.getPokemonInteractor = getPokemonInteractor
         self.router = router
+        
+        loadPokemon()
     }
 }
 
@@ -56,8 +58,8 @@ extension PokedexPresenterDefault: PokedexPresenter {
                     }
                 },
                 receiveValue: { pokemonList in
-                    self.pokemonList = pokemonList
-                    self.screenState = pokemonList.isEmpty ? .empty : .content
+                    self.pokemonList = PokemonViewModelMapper.map(pokemonList)
+                    self.screenState = self.pokemonList.pokemon.isEmpty ? .empty : .content
                 }
             )
             .store(in: &cancellables)

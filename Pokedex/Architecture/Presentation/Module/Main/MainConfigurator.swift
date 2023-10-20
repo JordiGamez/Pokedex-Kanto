@@ -10,13 +10,13 @@ import Foundation
 struct MainConfigurator {
     
     static var initialViewController: NavigationController {
-        getHomeScreen()
+        homeScreen()
     }
 }
 
 private extension MainConfigurator {
     
-    static func getHomeScreen() -> NavigationController {
+    static func homeScreen() -> NavigationController {
         let navController = NavigationController()
         let viewController = PokedexConfigurator(navigationController: navController).viewController()
         navController.viewControllers = [viewController]

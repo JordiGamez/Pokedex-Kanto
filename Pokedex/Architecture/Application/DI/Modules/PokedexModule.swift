@@ -13,6 +13,7 @@ class PokedexModule: InjectorModule {
     
     override func configure(_ container: Container) {
         configurePokedex(container)
+        configurePokemonDetail(container)
     }
     
     private func configurePokedex(_ container: Container) {
@@ -30,6 +31,15 @@ class PokedexModule: InjectorModule {
         
         container.register(GetPokemonListInteractor.self) { r in
             GetPokemonListInteractorDefault(
+                repository: r.resolve(PokemonRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
+    }
+    
+    private func configurePokemonDetail(_ container: Container) {
+        container.register(GetPokemonDetailInteractor.self) { r in
+            GetPokemonDetailInteractorDefault(
                 repository: r.resolve(PokemonRepository.self)!
             )
         }

@@ -23,11 +23,12 @@ extension View {
     @ViewBuilder
     func toolbar(
         _ style: ToolbarStyle.Navigation,
+        title: String = "",
         action: ((_ action: ToolbarAction) -> Void)?
     ) -> some View {
         switch style {
         case .backButton:
-            modifier(NavigationToolbar(action: action))
+            modifier(NavigationToolbar(title: title, action: action))
         }
     }
 }
@@ -44,17 +45,10 @@ enum ToolbarItemsBuilder {
         Button {
             action?(buttonAction)
         } label: {
-            if isOverDark {
-                buttonImage
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(Theme.Color.onPrimary)
-            } else {
-                buttonImage
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(Theme.Color.onBackground)
-            }
+            buttonImage
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(Theme.Color.onBackground)
         }
     }
     

@@ -9,10 +9,6 @@ import UIKit
 
 final class NavigationController: UINavigationController {
     
-    private var injector: Injector {
-        PokedexInjectorProvider.shared.injector
-    }
-    
     // iOS 15: Used to always hide the native UINavigationBar when navigating
     override var isNavigationBarHidden: Bool {
         get { true }

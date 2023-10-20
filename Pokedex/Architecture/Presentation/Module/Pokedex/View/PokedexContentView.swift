@@ -14,18 +14,13 @@ struct PokedexContentView<Presenter: PokedexPresenter>: View {
     var body: some View {
         ScrollView {
             VStack(spacing: Theme.Spacing.space_3) {
-                ForEach(presenter.pokemonList, id: \.number) { pokemon in
+                ForEach(presenter.pokemonList.pokemon, id: \.number) { pokemonCardViewModel in
                     PokemonCard(
-                        viewModel: .init(
-                            number: pokemon.number,
-                            name: pokemon.name,
-                            imageURL: pokemon.imageURL
-                        ),
+                        viewModel: pokemonCardViewModel,
                         onTap: {
-                            presenter.loadPokemonDetail(id: pokemon.number)
+                            presenter.loadPokemonDetail(id: pokemonCardViewModel.number)
                         }
                     )
-                    .accessibilityIdentifier(Accessibility.Identifiers.Pokedex.pokemon)
                 }
             }
             .padding(.all, Theme.Spacing.space_2)

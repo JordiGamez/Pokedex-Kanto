@@ -12,9 +12,9 @@ protocol PokedexRouter {
 }
 
 final class PokedexRouterDefault {
-
+    
     private weak var navigationController: NavigationController?
-
+    
     init(navigationController: NavigationController) {
         self.navigationController = navigationController
     }
@@ -23,6 +23,10 @@ final class PokedexRouterDefault {
 extension PokedexRouterDefault: PokedexRouter {
     
     func navigateToPokemonDetail(id: String) {
-        
+        guard let navigationController else {
+            return
+        }
+        let viewController = PokemonDetailConfigurator(navigationController: navigationController).viewController(pokemonNumber: id)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

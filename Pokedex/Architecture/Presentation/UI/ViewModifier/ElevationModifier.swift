@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+extension View {
+    /// Visual effect that adds depth and hierarchy to UI elements, based on drop shadows.
+    /// - Parameter level: The visual level of "depth" for the element.
+    /// - Returns: A View with the ``ElevationModifier`` applied.
+    func elevation(_ level: ElevationModifier.Level) -> some View {
+        modifier(ElevationModifier(level: level))
+    }
+}
+
 /// Visual effect that adds depth and hierarchy to UI elements, based on drop shadows.
 struct ElevationModifier: ViewModifier {
     enum Level: CaseIterable {
@@ -43,15 +52,6 @@ struct ElevationModifier: ViewModifier {
                     y: level.shadowOffset.1
                 )
         }
-    }
-}
-
-extension View {
-    /// Visual effect that adds depth and hierarchy to UI elements, based on drop shadows.
-    /// - Parameter level: The visual level of "depth" for the element.
-    /// - Returns: A View with the ``ElevationModifier`` applied.
-    func elevation(_ level: ElevationModifier.Level) -> some View {
-        modifier(ElevationModifier(level: level))
     }
 }
 

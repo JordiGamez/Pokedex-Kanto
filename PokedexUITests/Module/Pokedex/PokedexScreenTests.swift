@@ -12,43 +12,83 @@ import SnapshotTesting
 
 final class PokedexScreenTests: XCTestCase {
     
-    func testPokedexLoadingScreen() throws {
+    func testPokedexLoadingScreenLightMode() throws {
         let pokemonList = Pokemon.mockList()
         let presenter = MockPokedexPresenter(pokemonList: pokemonList)
         presenter.screenState = .loading
         let screen = PokedexView<MockPokedexPresenter>()
             .environmentObject(presenter)
         let viewController = HostingController(rootView: screen)
-        PokedexUIGroup.screenshots(viewController, name: "PokedexLoadingScreen")
+        PokedexUIGroup.screenshots(viewController, name: "PokedexLoadingScreen", scheme: .light)
     }
     
-    func testPokedexErrorScreen() throws {
+    func testPokedexErrorScreenLightMode() throws {
         let pokemonList = Pokemon.mockList()
         let presenter = MockPokedexPresenter(pokemonList: pokemonList)
         presenter.screenState = .error
         let screen = PokedexView<MockPokedexPresenter>()
             .environmentObject(presenter)
         let viewController = HostingController(rootView: screen)
-        PokedexUIGroup.screenshots(viewController, name: "PokedexErrorScreen")
+        PokedexUIGroup.screenshots(viewController, name: "PokedexErrorScreen", scheme: .light)
     }
     
-    func testPokedexEmptyScreen() throws {
+    func testPokedexEmptyScreenLightMode() throws {
         let pokemonList = Pokemon.mockList()
         let presenter = MockPokedexPresenter(pokemonList: pokemonList)
         presenter.screenState = .empty
         let screen = PokedexView<MockPokedexPresenter>()
             .environmentObject(presenter)
         let viewController = HostingController(rootView: screen)
-        PokedexUIGroup.screenshots(viewController, name: "PokedexEmptyScreen")
+        PokedexUIGroup.screenshots(viewController, name: "PokedexEmptyScreen", scheme: .light)
     }
     
-    func testPokedexContentScreen() throws {
+    func testPokedexContentScreenLightMode() throws {
         let pokemonList = Pokemon.mockList()
         let presenter = MockPokedexPresenter(pokemonList: pokemonList)
         presenter.screenState = .content
         let screen = PokedexView<MockPokedexPresenter>()
             .environmentObject(presenter)
         let viewController = HostingController(rootView: screen)
-        PokedexUIGroup.screenshots(viewController, name: "PokedexContentScreen")
+        PokedexUIGroup.screenshots(viewController, name: "PokedexContentScreen", scheme: .light)
+    }
+    
+    func testPokedexLoadingScreenDarkMode() throws {
+        let pokemonList = Pokemon.mockList()
+        let presenter = MockPokedexPresenter(pokemonList: pokemonList)
+        presenter.screenState = .loading
+        let screen = PokedexView<MockPokedexPresenter>()
+            .environmentObject(presenter)
+        let viewController = HostingController(rootView: screen)
+        PokedexUIGroup.screenshots(viewController, name: "PokedexLoadingScreen", scheme: .dark)
+    }
+    
+    func testPokedexErrorScreenDarkMode() throws {
+        let pokemonList = Pokemon.mockList()
+        let presenter = MockPokedexPresenter(pokemonList: pokemonList)
+        presenter.screenState = .error
+        let screen = PokedexView<MockPokedexPresenter>()
+            .environmentObject(presenter)
+        let viewController = HostingController(rootView: screen)
+        PokedexUIGroup.screenshots(viewController, name: "PokedexErrorScreen", scheme: .dark)
+    }
+    
+    func testPokedexEmptyScreenDarkMode() throws {
+        let pokemonList = Pokemon.mockList()
+        let presenter = MockPokedexPresenter(pokemonList: pokemonList)
+        presenter.screenState = .empty
+        let screen = PokedexView<MockPokedexPresenter>()
+            .environmentObject(presenter)
+        let viewController = HostingController(rootView: screen)
+        PokedexUIGroup.screenshots(viewController, name: "PokedexEmptyScreen", scheme: .dark)
+    }
+    
+    func testPokedexContentScreenDarkMode() throws {
+        let pokemonList = Pokemon.mockList()
+        let presenter = MockPokedexPresenter(pokemonList: pokemonList)
+        presenter.screenState = .content
+        let screen = PokedexView<MockPokedexPresenter>()
+            .environmentObject(presenter)
+        let viewController = HostingController(rootView: screen)
+        PokedexUIGroup.screenshots(viewController, name: "PokedexContentScreen", scheme: .dark)
     }
 }
